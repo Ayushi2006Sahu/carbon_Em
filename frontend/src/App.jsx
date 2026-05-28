@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+const API_BASE = import.meta.env.VITE_API_URL || '';
+
 export default function App() {
   // Global Data States
   const [records, setRecords] = useState([]);
@@ -28,7 +30,7 @@ export default function App() {
   // Load dashboard aggregates & records
   const fetchDashboardData = async () => {
     try {
-      const summaryRes = await fetch('/api/dashboard/summary/');
+      const summaryRes = await fetch(`${API_BASE}/api/dashboard/summary/`);
       if (summaryRes.ok) {
         const data = await summaryRes.json();
         setSummary(data);
@@ -46,7 +48,7 @@ export default function App() {
       if (filterStatus) params.append('status', filterStatus);
       if (filterSuspicious) params.append('is_suspicious', filterSuspicious);
 
-      const recordsRes = await fetch(`/api/records/?${params.toString()}`);
+      const recordsRes = await fetch(`${API_BASE}/api/records/?${params.toString()}`);
       if (recordsRes.ok) {
         const data = await recordsRes.json();
         setRecords(data);
@@ -75,7 +77,7 @@ export default function App() {
     formData.append('file', file);
 
     try {
-      const res = await fetch(`/api/ingest/${sourceType.toLowerCase()}/`, {
+      const res = await fetch(`${API_BASE}/api/ingest/${sourceType.toLowerCase()}/`, {
         method: 'POST',
         body: formData,
       });
@@ -105,7 +107,7 @@ export default function App() {
     }
 
     try {
-      const res = await fetch(`/api/records/${recordId}/approve/`, {
+      const res = await fetch(`${API_BASE}/api/records/${recordId}/approve/`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' }
       });
@@ -133,7 +135,7 @@ export default function App() {
     }
 
     try {
-      const res = await fetch(`/api/records/${rejectionTarget}/reject/`, {
+      const res = await fetch(`${API_BASE}/api/records/${rejectionTarget}/reject/`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ reason: rejectionReason })
@@ -159,7 +161,7 @@ export default function App() {
   const openRecordDetails = async (record) => {
     setSelectedRecord(record);
     try {
-      const auditRes = await fetch(`/api/records/${record.id}/audit/`);
+      const auditRes = await fetch(`${API_BASE}/api/records/${record.id}/audit/`);
       if (auditRes.ok) {
         const data = await auditRes.json();
         setAuditTrail(data);
