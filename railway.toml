@@ -1,0 +1,7 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "python backend/manage.py migrate && gunicorn --chdir backend breathe_esg.wsgi --log-file -"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5

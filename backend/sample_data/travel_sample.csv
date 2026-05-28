@@ -1,0 +1,19 @@
+expense_id,traveler_name,travel_date,travel_type,origin,destination,distance_km,nights,travel_class,amount,currency
+EXP-5001,John Doe,2026-05-10,FLIGHT,DEL,LHR,,0,ECONOMY,850.00,USD
+EXP-5002,John Doe,2026-05-12,HOTEL,,,0,4,STANDARD,600.00,USD
+EXP-5003,John Doe,2026-05-16,GROUND,LHR,Office,45.00,0,DEFAULT,60.00,GBP
+EXP-5004,Sarah Smith,2026-05-14,FLIGHT,JFK,LAX,,0,BUSINESS,2400.00,USD
+EXP-5005,Sarah Smith,2026-05-15,HOTEL,,,0,3,STANDARD,750.00,USD
+EXP-5006,Sarah Smith,2026-05-18,GROUND,LAX,Client,30.00,0,DEFAULT,45.00,USD
+EXP-5007,Amit Patel,2026-05-02,FLIGHT,BOM,DEL,1140.00,0,ECONOMY,150.00,USD
+EXP-5008,Amit Patel,2026-05-05,HOTEL,,,0,2,STANDARD,120.00,USD
+# Unknown airport code to trigger lookup failures (suspicion)
+EXP-5009,John Doe,2026-05-20,FLIGHT,XYZ,LHR,,0,ECONOMY,900.00,USD
+# Future travel date to trigger date anomaly detection (suspicion)
+EXP-5010,Sarah Smith,2028-12-15,FLIGHT,SFO,JFK,,0,ECONOMY,500.00,USD
+EXP-5011,Amit Patel,2026-05-06,GROUND,DEL,Hotel,15.00,0,DEFAULT,20.00,USD
+EXP-5012,Emily Brown,2026-05-01,FLIGHT,CDG,AMS,,0,BUSINESS,650.00,EUR
+EXP-5013,Emily Brown,2026-05-02,HOTEL,,,0,1,DELUXE,280.00,EUR
+# Negative nights stayed at hotel (triggers suspicion)
+EXP-5014,Emily Brown,2026-05-03,HOTEL,,,0,-2,DELUXE,-400.00,EUR
+EXP-5015,Emily Brown,2026-05-04,GROUND,AMS,Station,12.00,0,DEFAULT,25.00,EUR

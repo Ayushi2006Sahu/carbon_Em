@@ -1,0 +1,14 @@
+account_number,meter_id,service_address,billing_period_start,billing_period_end,kwh_consumed,peak_demand_kw,tariff_code,amount_billed
+ACCT-99281,MTR-1001,Munich Assembly Facility,2025-01-01,2025-01-31,14200.00,45.0,IND-HEAVY,3200.00
+ACCT-99281,MTR-1001,Munich Assembly Facility,2025-02-01,2025-02-28,13800.00,42.0,IND-HEAVY,3100.00
+ACCT-99281,MTR-1001,Munich Assembly Facility,2025-03-01,2025-03-31,14500.00,48.0,IND-HEAVY,3300.00
+ACCT-99281,MTR-1002,Munich Assembly Facility,2025-01-01,2025-01-31,8500.00,25.0,IND-LIGHT,1900.00
+ACCT-99281,MTR-1002,Munich Assembly Facility,2025-02-01,2025-02-28,8200.00,24.0,IND-LIGHT,1850.00
+ACCT-99281,MTR-1002,Munich Assembly Facility,2025-03-01,2025-03-31,8900.00,26.0,IND-LIGHT,2000.00
+ACCT-99281,MTR-1001,Munich Assembly Facility,2025-04-01,2025-04-30,15000.00,50.0,IND-HEAVY,3400.00
+ACCT-99281,MTR-1001,Munich Assembly Facility,2025-05-01,2025-05-31,15200.00,52.0,IND-HEAVY,3450.00
+ACCT-99281,MTR-1001,Munich Assembly Facility,2025-06-01,2025-06-30,16500.00,55.0,IND-HEAVY,3700.00
+ACCT-99281,MTR-1002,Munich Assembly Facility,2025-04-01,2025-04-30,9200.00,27.0,IND-LIGHT,2100.00
+# Deliberate date mismatch: end date is before the start date (triggers suspicion)
+ACCT-99281,MTR-1002,Munich Assembly Facility,2025-06-01,2025-05-15,9500.00,28.0,IND-LIGHT,2150.00
+ACCT-99281,MTR-1001,Munich Assembly Facility,2025-07-01,2025-07-31,-1200.00,0.0,IND-HEAVY,0.00
