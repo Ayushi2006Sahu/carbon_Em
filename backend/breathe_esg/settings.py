@@ -115,8 +115,8 @@ AUTH_USER_MODEL = 'emissions.User'
 # CORS Config
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "https://your-app.vercel.app",  # Your production Vercel domain
-    "http://localhost:3000",        # Local frontend fallback
+    "https://carbon-em.vercel.app",
+    "http://localhost:3000",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
