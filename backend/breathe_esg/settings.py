@@ -110,7 +110,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'emissions.User'
 
 # CORS Config
-CORS_ALLOW_ALL_ORIGINS = True  # Allowed for local demo + easy deployment verification
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "https://your-app.vercel.app",  # Your production Vercel domain
+    "http://localhost:3000",        # Local frontend fallback
+]
 CORS_ALLOW_CREDENTIALS = True
 
 # REST Framework config
